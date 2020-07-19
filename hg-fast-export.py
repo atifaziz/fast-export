@@ -3,14 +3,18 @@
 # Copyright (c) 2007, 2008 Rocco Rutte <pdmef@gmx.net> and others.
 # License: MIT <http://www.opensource.org/licenses/mit-license.php>
 
+import sys
+import os
+
+#import mercurial libraries from zip:
+sys.path.append(os.path.join(os.getenv('ProgramFiles'), 'TortoiseHg', 'lib', 'library.zip'))
+
 from mercurial import node
 from mercurial.scmutil import revsymbol
 from hg2git import setup_repo,fixup_user,get_branch,get_changeset
 from hg2git import load_cache,save_cache,get_git_sha1,set_default_branch,set_origin_name
 from optparse import OptionParser
 import re
-import sys
-import os
 from binascii import hexlify
 import pluginloader
 PY2 = sys.version_info.major == 2
